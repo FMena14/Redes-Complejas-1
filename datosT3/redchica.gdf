@@ -1,0 +1,22 @@
+nodedef>name VARCHAR,score DOUBLE,x DOUBLE,y DOUBLE,visible BOOLEAN,color VARCHAR,labelcolor VARCHAR,fixed BOOLEAN,style TINYINT,width DOUBLE,height DOUBLE,label VARCHAR,image VARCHAR,labelvisible BOOLEAN,newscore DOUBLE,indegree INTEGER,outdegree INTEGER,totaldegree INTEGER
+v1,0.125,227.5,77.5,true,red,,false,2,7.14142842854285,7.14142842854285,,,true,0.011122011882475637,1,2,3
+v2,0.125,186.97368421052633,22.932330827067666,true,red,,false,2,7.14142842854285,7.14142842854285,,,true,0.008858074747045998,1,1,2
+v3,0.125,135.61904761904762,40.24185463659147,true,red,,false,2,7.14142842854285,7.14142842854285,,,true,0.026034595929651586,2,3,5
+v4,0.125,78.0,0.0,true,red,,false,2,7.14142842854285,7.14142842854285,,,true,0.03892820481787709,2,2,4
+v5,0.125,69.5,61.5,true,red,,false,2,7.14142842854285,7.14142842854285,,,true,0.040863945058486235,3,2,5
+v6,0.125,6.0,2.5,true,red,,false,2,7.14142842854285,7.14142842854285,,,true,0.03254490271987749,1,1,2
+v7,0.125,19.849624060150376,104.0325814536341,true,red,,false,2,7.14142842854285,7.14142842854285,,,true,0.9202901900975401,1,0,1
+v8,0.125,138.4749373433584,83.66666666666667,true,red,,false,2,7.14142842854285,7.14142842854285,,,true,0.008858074747045998,1,1,2
+edgedef>node1 VARCHAR,node2 VARCHAR,directed BOOLEAN,__edgeid INTEGER,visible BOOLEAN,color VARCHAR,labelcolor VARCHAR,width DOUBLE,weight DOUBLE,label VARCHAR,labelvisible BOOLEAN
+v5,v7,true,0,true,blue,,0.0,1.0,,false
+v5,v6,true,1,true,blue,,0.0,1.0,,false
+v6,v4,true,2,true,blue,,0.0,1.0,,false
+v4,v3,true,3,true,blue,,0.0,1.0,,false
+v3,v4,true,4,true,blue,,0.0,1.0,,false
+v2,v3,true,5,true,blue,,0.0,1.0,,false
+v1,v2,true,6,true,blue,,0.0,1.0,,false
+v1,v8,true,7,true,blue,,0.0,1.0,,false
+v8,v5,true,8,true,blue,,0.0,1.0,,false
+v3,v5,true,9,true,blue,,0.0,1.0,,false
+v4,v5,true,10,true,blue,,0.0,1.0,,false
+v3,v1,true,11,true,blue,,0.0,1.0,,false
