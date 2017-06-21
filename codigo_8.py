@@ -49,7 +49,43 @@ print "densidad grafo con E-R: ",grafo_ER.density()
 print "densidad grafo tarea 1 aleatorizada: ",grafo_tarea1_aleatorizada.density()
 
 
+
+##calcula la cantida de core
+def cores(grafo):
+	lista = grafo.coreness()
+	return {i:lista.count(i) for i in set(lista)}
+	#for i in lista:
+
 #analizar
-print grafo_tarea1.coreness()
-print grafo_ER.coreness()
-print grafo_tarea1_aleatorizada.coreness()
+print "cores grafo tarea1: ",cores(grafo_tarea1)
+print "cores grafo E-R: ",cores(grafo_ER)
+print "cores grafo tarea1 aleatorizada: ",cores(grafo_tarea1_aleatorizada)
+
+
+##calcula la modularidad
+def modularidad(grafo):
+	aux = grafo.community_fastgreedy()
+	algoritmo_gloton = aux.as_clustering()
+	return grafo.modularity(algoritmo_gloton)
+
+print "modularidad grafo tarea1: ",modularidad(grafo_tarea1)
+print "modularidad grafo E-R: ",modularidad(grafo_ER)
+print "modularidad grafo tarea1 aleatorizada: ",modularidad(grafo_tarea1_aleatorizada)
+
+
+##calcula la asortividad
+print "asortividad grafo tarea1: ",grafo_tarea1.assortativity_degree(directed=False)
+print "asortividad grafo E-R: ",grafo_ER.assortativity_degree(directed=False)
+print "asortividad grafo tarea1 aleatorizada: ",grafo_tarea1_aleatorizada.assortativity_degree(directed=False)
+
+import matplotlib.pyplot as plt
+def graficar_knn(grafo):
+	lista = grafo_tarea1.knn()[1]
+	plt.plot( range(1,len(lista)+1), lista )
+	plt.xticks(range(1,len(lista)+1))
+	plt.xlabel('grado')
+	plt.ylabel('grado promedio de vecinos')
+	plt.title('grafico knn')
+	plt.show()
+#knn
+graficar_knn(grafo_tarea1)
