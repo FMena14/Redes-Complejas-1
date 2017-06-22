@@ -12,7 +12,9 @@ def cargar_tarea1():
 grafo_tarea1 = cargar_tarea1()
 
 n = grafo_tarea1.vcount()
+m = grafo_tarea1.ecount()
 density = grafo_tarea1.density()
+print "grafo tarea1 tiene %d nodos y %d aristas"%(n,m)
 
 
 #grados = grafo_tarea1.degree()
@@ -27,8 +29,9 @@ visual_style["edge_width"] = 2
 #plot(grafo_tarea1, **visual_style)
 
 ##---Erdos Renyi
-grafo_ER = Graph().Erdos_Renyi(n=n,p= density) #puede ser Erdos_Renyi(n=nodostarea1,m=numero de edges)
-
+grafo_ER = Graph().Erdos_Renyi(n=n, m=m)
+#p= density) #puede ser Erdos_Renyi(n=nodostarea1,m=numero de edges)
+print "cantidad de aristas erdos: ",grafo_ER.ecount()
 
 #plot(grafo_ER, **visual_style)
 
@@ -61,7 +64,6 @@ print "cores grafo tarea1: ",cores(grafo_tarea1)
 print "cores grafo E-R: ",cores(grafo_ER)
 print "cores grafo tarea1 aleatorizada: ",cores(grafo_tarea1_aleatorizada)
 
-
 ##calcula la modularidad
 def modularidad(grafo):
 	aux = grafo.community_fastgreedy()
@@ -80,7 +82,7 @@ print "asortividad grafo tarea1 aleatorizada: ",grafo_tarea1_aleatorizada.assort
 
 import matplotlib.pyplot as plt
 def graficar_knn(grafo):
-	lista = grafo_tarea1.knn()[1]
+	lista = grafo.knn()[1]
 	plt.plot( range(1,len(lista)+1), lista )
 	plt.xticks(range(1,len(lista)+1))
 	plt.xlabel('grado')
@@ -89,3 +91,5 @@ def graficar_knn(grafo):
 	plt.show()
 #knn
 graficar_knn(grafo_tarea1)
+graficar_knn(grafo_ER)
+
