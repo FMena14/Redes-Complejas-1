@@ -18,23 +18,24 @@ g = Graph.Adjacency(A.astype(bool).tolist())
 print g.density()
 
 grados = g.degree()
-#betweenness = g.edge_betweenness()
-page_rank = g.pagerank()
 
 L = g.laplacian()
 print "Matriz laplaciana: ", L
-EV = g.eigenvector_centrality()
-print "Vector propio: ", EV
 
-#g.vs["grados"] = grados
-#g.vs["betweenness"] = betweenness
-#g.vs["page_rank"] = page_rank
+import numpy as np
+lambdas,w = np.linalg.eig(L)
+print "valor propio asociado ",lambdas
+print "vectores propios ",w
 
-print(g)
+val2 = sorted(lambdas)[1]
+print "valor de Fiedler ", val2 #segundo mas grande
+w2 = w[:, np.where(lambdas ==val2)]
+print "vector propio asociado ", w2
+
 
 new_labels = []
 for i in range(6):
-	new_label = "\n\n\n\n\n G:"+str(grados[i]/2)+"\nVal prop:"+str(round(EV[i],3))
+	new_label = "\n\n\n\n G:"+str(grados[i]/2)+"\nVal prop:"+str(round(w2[i],3))
 	new_labels.append(new_label)
 
 g.vs["label"] = new_labels
@@ -47,5 +48,3 @@ visual_style["margin"] = 100
 visual_style["edge_width"] = 1
 
 plot(g, **visual_style)
-
-plot(g, "red_pregunta2.png")
