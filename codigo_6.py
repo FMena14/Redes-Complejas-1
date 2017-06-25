@@ -12,7 +12,6 @@ def separar_en_listas(lista):
 		l2.append(y)
 
 	return l1,l2
-# -----------------------------------------------
 
 # Carga de archivo
 red_chica = Graph.Read_GML("datosT3/redchica.gml")
@@ -73,71 +72,3 @@ a = [grados_l1,grados_l2,separacion,betweenness_l1,betweenness_l2,separacion,pag
 table =  zip(*a)
 
 print tabulate(table, headers=["Etiqueta","Grado","#","Etiqueta","Betweenness","#","Etiqueta","PageRank"],  tablefmt="rst")
-
-
-
-
-
-'''
-visual_style = {}
-visual_style["vertex_size"] = 20
-visual_style["vertex_color"] = [color_dict[gender] for gender in g.vs["gender"]]
-visual_style["vertex_label"] = g.vs["name"]
-visual_style["edge_width"] = [1 + 2 * int(is_formal) for is_formal in g.es["is_formal"]]
-visual_style["layout"] = layout
-visual_style["bbox"] = (300, 300)
-visual_style["margin"] = 20
-plot(g, **visual_style)
-'''
-
-#layout = red_chica.layout("kk")
-#plot(red_chica, layout = layout)
-
-
-
-
-'''
-red_gnutella = Graph.Read_GML("datosT3/gnutella.gml")
-
-layout = red_gnutella.layout("kk")
-plot(red_gnutella, layout = layout)
-
-
-red_correos = Graph.Read_GML("datosT3/correos.gml")
-
-layout = red_correos.layout("kk")
-plot(red_correos, layout = layout)
-
-'''
-
-
-''' Documentacion READS -----------------------------------------------
-Read_DIMACS(f, directed=False)
-Reads a graph from a file conforming to the DIMACS minimum-cost flow file format.	source code
- 	
-Read_DL(f, directed=True)
-Reads an UCINET DL file and creates a graph based on it.	source code
- 	
-Read_Edgelist(f, directed=True)
-Reads an edge list from a file and creates a graph based on it.	source code
- 	
-Read_GML(f)
-Reads a GML file and creates a graph based on it.	source code
- 	
-Read_GraphDB(f, directed=False)
-Reads a GraphDB format file and creates a graph based on it.	source code
- 	
-Read_GraphML(f, directed=True, index=0)
-Reads a GraphML format file and creates a graph based on it.	source code
- 	
-Read_Lgl(f, names=True, weights="if_present", directed=True)
-Reads an .lgl file used by LGL.	source code
- 	
-Read_Ncol(f, names=True, weights="if_present", directed=True)
-Reads an .ncol file used by LGL.	source code
- 	
-Read_Pajek(f)
-
-'''
-
-
