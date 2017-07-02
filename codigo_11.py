@@ -65,8 +65,6 @@ m = pescado.ecount()
 print "Numero de vertices: ",n
 print "Numero de arcos: ",m
 
-plot(pescado, **visual_style)
-
 # A)
 
 # Adjacency_matrix
