@@ -19,7 +19,7 @@ red_chica = Graph.Read_GML("datosT3/redchica.gml")
 # A) Graficar con atributos -----------------------------------------------
 
 # Atributos por vertice -------------------
-grados = red_chica.degree()
+grados = red_chica.degree(mode="IN")
 betweenness = red_chica.edge_betweenness()
 page_rank = red_chica.pagerank()
 
