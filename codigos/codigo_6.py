@@ -20,7 +20,7 @@ red_chica = Graph.Read_GML("datosT3/redchica.gml")
 
 # Atributos por vertice -------------------
 grados = red_chica.degree(mode="IN")
-betweenness = red_chica.edge_betweenness()
+betweenness = red_chica.edge_betweenness(mode=directed)
 page_rank = red_chica.pagerank()
 
 red_chica.vs["grados"] = grados
